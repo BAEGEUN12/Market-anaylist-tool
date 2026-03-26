@@ -35,8 +35,7 @@
 
 ## 2.System context diagram
 <img width="1169" height="568" alt="image" src="https://github.com/user-attachments/assets/6d09eefd-95e3-48c8-9429-9e0ed5f990b2" />
-## System Interaction
-
+##  System Interaction
 ● User → System  
 : 사용자는 주식 종목명을 입력하고 분석을 요청한다.
 
@@ -54,6 +53,7 @@
 
 ● System → User  
 : 시스템은 차트와 분석 결과를 사용자에게 제공한다.
+ ####  <단 판단의 근거가되는 Rsi, 엘리어트 파동, 패턴, 큰 시간선에서 작은 시간선 등은 명확하게 AI가 판단할수있는 기준점제시를 해야함>
 ## 3. Use Case List
 
 ### UC-01: Enter Stock Name
@@ -218,25 +218,6 @@
 
 ● Data Processing  
 : 수집된 데이터를 분석에 적합한 형태로 정리하고 변환하는 과정이다.
-## 7. References (참고문헌)
+## 7. References 
 
-1. Statista – Retail Investing Trends  
-   https://www.statista.com/topics/4414/retail-investing/
 
-2. The Korea Herald – Rise of Individual Investors in Korea  
-   https://www.koreaherald.com/view.php?ud=20210106000854
-
-3. OECD – Financial Education and Literacy  
-   https://www.oecd.org/finance/financial-education/
-
-4. Alpha Vantage API Documentation  
-   https://www.alphavantage.co/documentation/
-
-5. Yahoo Finance  
-   https://finance.yahoo.com/
-
-6. Google Gemini API Documentation  
-   https://ai.google.dev/
-
-7. Investopedia – Stock Market Basics  
-   https://www.investopedia.com/terms/s/stockmarket.asp
