@@ -13,8 +13,6 @@
 
 최근 주식 투자에 대한 관심이 크게 증가하면서 많은 사람들이 주식 시장에 참여하고 있다.
 그러나 상당수의 개인 투자자들은 충분한 지식이나 분석 없이 감에 의존하거나 단순한 정보만을 기반으로 투자하는 경우가 많다.
-###  Background(근거자료)개인투자자의 주식 관심도 증가 연합뉴스 https://www.yna.co.kr/view/AKR20210326105600030
-
 이로 인해 비효율적인 투자 판단이나 손실이 발생할 가능성이 높아지고 있으며,  
 주식 분석에 대한 접근성과 이해도를 높이는 도구의 필요성이 커지고 있다.
 
@@ -28,7 +26,7 @@
 이를 통해 사용자는 보다 체계적이고 합리적인 투자 판단을 내릴 수 있으며,  
 주식 시장에 대한 접근성을 향상시킬 수 있다.
 
-
+###  Background(근거자료)개인투자자의 주식 관심도 증가 연합뉴스 https://www.yna.co.kr/view/AKR20210326105600030
 ### Expected Benefit
 
 - 초보 투자자의 의사결정 지원
@@ -37,7 +35,25 @@
 
 ## 2.System context diagram
 <img width="1169" height="568" alt="image" src="https://github.com/user-attachments/assets/6d09eefd-95e3-48c8-9429-9e0ed5f990b2" />
+## System Interaction
 
+● User → System  
+: 사용자는 주식 종목명을 입력하고 분석을 요청한다.
+
+● System → Stock API  
+: 시스템은 해당 주식의 데이터를 요청한다.
+
+● Stock API → System  
+: 주식 데이터 및 과거 데이터가 시스템으로 전달된다.
+
+● System → Gemini API  
+: 시스템은 데이터를 Gemini API에 전달하여 분석을 요청한다.
+
+● Gemini API → System  
+: AI는 추세 및 투자 의견을 생성하여 반환한다.
+
+● System → User  
+: 시스템은 차트와 분석 결과를 사용자에게 제공한다.
 ## 3. Use Case List
 
 ### UC-01: Enter Stock Name
@@ -133,8 +149,94 @@
 
 ---
 
-### 4.5 기대 동작 (Expected Behavior)
+### 4.5 기대동작(Expected Behavior)
 
 - 사용자 입력에 대해 빠르게 응답해야 한다.
 - 분석 결과는 직관적이고 이해하기 쉽게 제공되어야 한다.
 - 잘못된 입력이나 API 오류 발생 시 적절한 안내 메시지를 제공해야 한다.
+## 5. Problem Statement (문제 정의)
+
+최근 주식 투자에 대한 관심이 증가하면서 개인 투자자의 수가 크게 늘어나고 있다.  
+그러나 많은 개인 투자자들은 충분한 금융 지식이나 분석 능력을 갖추지 못한 상태에서 투자에 참여하고 있으며, 이로 인해 비합리적인 의사결정을 내리는 경우가 많다.
+
+특히 다음과 같은 문제가 존재한다:
+
+- 주식 데이터(가격, 거래량 등)에 대한 해석 능력 부족
+- 전문적인 분석 도구의 접근성 부족
+- 정보 과잉 환경에서 신뢰할 수 있는 판단 기준 부족
+- 감정에 의존한 투자 (추격 매수, 공포 매도 등)
+
+이러한 문제는 투자 손실로 이어질 가능성을 높이며, 효율적인 투자 활동을 어렵게 만든다.
+
+또한, 기존의 주식 분석 도구들은 복잡한 인터페이스와 전문적인 지식을 요구하는 경우가 많아, 초보 투자자가 활용하기에는 진입 장벽이 높다.
+
+따라서 다음과 같은 해결 방안이 필요하다:
+
+- 주식 데이터를 자동으로 수집하고 시각적으로 제공하는 시스템
+- AI 기반 분석을 통해 직관적인 해석 제공
+- 초보자도 이해할 수 있는 간단한 결과 제시
+- 빠르고 쉽게 접근 가능한 웹 기반 환경
+
+본 시스템은 이러한 문제를 해결하기 위해 설계되었으며,  
+사용자가 간단한 입력만으로 주식 데이터를 분석하고 이해할 수 있도록 지원하는 것을 목표로 한다.
+
+이를 통해 사용자에게 보다 합리적이고 데이터 기반의 투자 판단 환경을 제공하고자 한다.
+## 6. Glossary (용어 정의)
+
+● Stock  
+: 기업의 소유권을 나타내는 증권으로, 주식 시장에서 거래된다.
+
+● Stock API  
+: 주식 가격, 거래량, 과거 데이터 등의 금융 정보를 제공하는 외부 서비스이다.
+
+● Gemini API  
+: Google에서 제공하는 AI 서비스로, 데이터 분석 및 자연어 기반 결과를 생성한다.
+
+● Stock Analysis  
+: 주식 데이터를 기반으로 시장의 흐름, 추세, 투자 가능성을 평가하는 과정이다.
+
+● Trend (추세)  
+: 주식 가격이 일정 기간 동안 상승, 하락, 또는 횡보하는 방향성을 의미한다.
+
+● Buy / Sell / Hold  
+: 투자 판단을 나타내는 용어로, 각각 매수, 매도, 관망을 의미한다.
+
+● Moving Average (이동평균선)  
+: 일정 기간 동안의 평균 주가를 계산하여 가격 흐름을 파악하는 지표이다.
+
+● RSI (Relative Strength Index)  
+: 주식이 과매수 또는 과매도 상태인지 판단하는 기술적 지표이다.
+
+● Frontend  
+: 사용자가 직접 상호작용하는 인터페이스(웹 화면)를 의미한다.
+
+● Server  
+: 데이터를 처리하고 외부 API와 통신하는 시스템 구성 요소이다.
+
+● API (Application Programming Interface)  
+: 서로 다른 소프트웨어 간에 데이터를 주고받을 수 있도록 하는 인터페이스이다.
+
+● Data Processing  
+: 수집된 데이터를 분석에 적합한 형태로 정리하고 변환하는 과정이다.
+## 7. References (참고문헌)
+
+1. Statista – Retail Investing Trends  
+   https://www.statista.com/topics/4414/retail-investing/
+
+2. The Korea Herald – Rise of Individual Investors in Korea  
+   https://www.koreaherald.com/view.php?ud=20210106000854
+
+3. OECD – Financial Education and Literacy  
+   https://www.oecd.org/finance/financial-education/
+
+4. Alpha Vantage API Documentation  
+   https://www.alphavantage.co/documentation/
+
+5. Yahoo Finance  
+   https://finance.yahoo.com/
+
+6. Google Gemini API Documentation  
+   https://ai.google.dev/
+
+7. Investopedia – Stock Market Basics  
+   https://www.investopedia.com/terms/s/stockmarket.asp
