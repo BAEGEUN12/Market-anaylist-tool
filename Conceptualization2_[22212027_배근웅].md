@@ -13,7 +13,7 @@
 
 ##  GitHub Repository
 
-- https://github.com/BAEGEUN12/Market-anaylist-tool
+- https://github.com/BAEGEUN12/Market-anaylist-tool/blob/main/Conceptualization2_%5B22212027_%EB%B0%B0%EA%B7%BC%EC%9B%85%5D.md
 ## Contents
 
 * [1. Introduction](#)
