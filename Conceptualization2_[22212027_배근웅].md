@@ -16,10 +16,9 @@
 - https://github.com/BAEGEUN12/Market-anaylist-tool
 ## Contents
 
-- [1. Business purpose](#1-business-purpose)
-- [2. System context diagram](#2-system-context-diagram)
-- [3. Use case list](#3-use-case-list)
-- [4. Concept of operation](#4-concept-of-operation)
-- [5. Problem statement](#5-problem-statement)
-- [6. Glossary](#6-glossary)
-- [7. References](#7-references)
+* [1. Introduction](#)
+* [2. Use case analysis](#)
+* [3. Domain analysis](#)
+* [4. User Interface prototype](#)
+* [5. Glossary](#)
+* [6. References](#)
