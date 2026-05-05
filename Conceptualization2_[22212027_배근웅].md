@@ -185,4 +185,325 @@ Description을 보여준다.
 | **Due Date** | 2026-05-31 |
 | **Etc** | Gemini AI의 분석 정확도와 직결되는 항목이므로 변경 전 백업이 권장됨. |
 
+### 2.2.3 Layout adjustment
+
+| Use Case Name | Use Case ID | Korean Name | Actor |
+| :--- | :--- | :--- | :--- |
+| **Layout adjustment** | #4 | 레이아웃 조정 | Administrator |
+
+<br>
+
+| Use Case #4 : Layout adjustment | |
+| :--- | :--- |
+| **GENERAL CHARACTERISTICS** | |
+| **Summary** | 관리자가 사용자에게 보여지는 주식 분석 화면 및 리포트의 레이아웃 구성을 최적화하거나 수정한다. |
+| **Scope** | Market analyst tool |
+| **Level** | User level |
+| **Author** | Bae GeunWong |
+| **Last Update** | May. 5. 2026 |
+| **Status** | Under Review |
+| **Primary Actor** | Administrator |
+| **Secondary Actors** | Server |
+| **Preconditions** | 관리자 권한으로 로그인된 상태. |
+| **Trigger** | 대시보드의 가독성 개선이 필요하거나 새로운 위젯/차트 배치가 필요할 때 |
+| **Success Post Condition** | 변경된 레이아웃 설정이 데이터베이스에 저장되어 모든 사용자의 화면에 즉시 반영된다. |
+| **Failed Post condition** | 저장 실패 시 이전 레이아웃 구성이 그대로 유지된다. |
+
+<br>
+
+| MAIN SUCCESS SCENARIO | |
+| :--- | :--- |
+| **Step** | **Action** |
+| **1** | 관리자가 시스템 관리 UI의 '레이아웃 설정' 메뉴로 진입한다. |
+| **2** | 현재 사용자에게 출력되는 분석 차트, 뉴스 피드, AI 요약문의 배치 상태를 확인한다. |
+| **3** | 드래그 앤 드롭 또는 설정값을 통해 각 컴포넌트의 위치와 크기를 조정한다. |
+| **4** | '미리보기'를 통해 변경된 레이아웃을 검토한 후 '적용' 버튼을 누른다. |
+| **5** | 시스템이 새로운 레이아웃 템플릿을 저장하고 적용 완료 메시지를 보여준다. |
+
+<br>
+
+| EXTENSION SCENARIOS | |
+| :--- | :--- |
+| **Step** | **Branching Action** |
+| **3** | **3a. 필수 출력 항목이 레이아웃에서 누락된 경우.**<br>3a1. 경고 메시지를 띄우고 필수 항목을 다시 배치하도록 안내한다. |
+| **4** | **4a. 미리보기 단계에서 비정상적인 화면 왜곡이 발견될 경우.**<br>4a1. '초기화' 버튼을 눌러 마지막 저장 상태로 되돌린다. |
+
+<br>
+
+| RELATED INFORMATION | |
+| :--- | :--- |
+| **Performance** | 레이아웃 변경 사항은 저장 후 2초 이내에 사용자 인터페이스에 반영되어야 한다. |
+| **Frequency** | UI 개선 및 업데이트 시 발생 |
+| **Concurrency** | 관리자 단독 수행 (다수 관리자 동시 수정 시 마지막 저장 기준 적용) |
+| **Due Date** | 2026-05-31 |
+| **Etc** | 반응형 웹 디자인 규격을 준수하여 모바일과 데스크톱 환경을 모두 고려해야 함. |
+
+### 2.2.4 Enter Stock Name
+
+| Use Case Name | Use Case ID | Korean Name | Actor |
+| :--- | :--- | :--- | :--- |
+| **Enter Stock Name** | #5 | 종목명 입력 | User |
+
+<br>
+
+| Use Case #5 : Enter Stock Name | |
+| :--- | :--- |
+| **GENERAL CHARACTERISTICS** | |
+| **Summary** | 사용자가 분석을 원하는 주식의 종목명 또는 종목 코드를 입력하여 시스템에 분석 대상을 전달한다. |
+| **Scope** | Market analyst tool |
+| **Level** | User level |
+| **Author** | Bae GeunWong |
+| **Last Update** | May. 5. 2026 |
+| **Status** | Under Review |
+| **Primary Actor** | User |
+| **Secondary Actors** | Server, Stock API |
+| **Preconditions** | 시스템 메인 화면에 접속한 상태. |
+| **Trigger** | 사용자가 특정 종목에 대한 AI 분석 결과를 확인하고자 할 때 |
+| **Success Post Condition** | 입력한 종목이 유효함이 확인되고, 해당 종목의 상세 분석 페이지로 이동한다. |
+| **Failed Post condition** | 존재하지 않는 종목이거나 입력 오류 시 경고 메시지를 출력하고 재입력을 요구한다. |
+
+<br>
+
+| MAIN SUCCESS SCENARIO | |
+| :--- | :--- |
+| **Step** | **Action** |
+| **1** | 사용자가 메인 화면의 검색창에 분석하고자 하는 종목명(예: 삼성전자) 또는 종목 코드를 입력한다. |
+| **2** | 입력 시 실시간으로 연관 검색어 리스트가 출력된다. |
+| **3** | 사용자가 리스트에서 원하는 종목을 선택하거나 'Enter' 키를 누른다. |
+| **4** | 시스템이 Stock API를 통해 해당 종목의 존재 여부와 기본 정보를 대조한다. |
+| **5** | 유효한 종목인 경우, 해당 종목의 데이터 로딩과 함께 분석 결과 화면으로 전환된다. |
+
+<br>
+
+| EXTENSION SCENARIOS | |
+| :--- | :--- |
+| **Step** | **Branching Action** |
+| **1** | **1a. 아무것도 입력하지 않고 검색을 시도할 경우.**<br>1a1. "종목명을 입력해 주세요"라는 안내 메시지를 띄운다. |
+| **4** | **4a. 존재하지 않는 종목명 또는 잘못된 코드를 입력한 경우.**<br>4a1. "검색 결과가 없습니다. 다시 확인해 주세요"라는 메시지를 출력한다. |
+
+<br>
+
+| RELATED INFORMATION | |
+| :--- | :--- |
+| **Performance** | 종목 검색 및 자동완성 리스트 출력은 1초 이내에 이루어져야 한다. |
+| **Frequency** | 서비스 이용 시 수시로 발생 |
+| **Concurrency** | 다수의 사용자가 동시에 검색 가능 |
+| **Due Date** | 2026-05-31 |
+| **Etc** | 국문 종목명뿐만 아니라 영문명 및 6자리 종목 코드 검색을 모두 지원해야 함. |
+
+
+### 2.2.5 Login Verification
+
+| Use Case Name | Use Case ID | Korean Name | Actor |
+| :--- | :--- | :--- | :--- |
+| **Login Verification** | #6 | 로그인 검증 | User, Administrator |
+
+<br>
+
+| Use Case #6 : Login Verification | |
+| :--- | :--- |
+| **GENERAL CHARACTERISTICS** | |
+| **Summary** | 사용자가 입력한 계정 정보(ID, Password)를 서버 데이터베이스와 대조하여 유효한 사용자인지 검증한다. |
+| **Scope** | Market analyst tool |
+| **Level** | Sub-function level |
+| **Author** | Bae GeunWong |
+| **Last Update** | May. 5. 2026 |
+| **Status** | Under Review |
+| **Primary Actor** | User, Administrator |
+| **Secondary Actors** | Server, Database |
+| **Preconditions** | 사용자가 로그인 페이지에서 정보를 입력하고 로그인 버튼을 누른 상태. |
+| **Trigger** | 로그인 시도가 감지되어 사용자 인증이 필요할 때 |
+| **Success Post Condition** | 정보가 일치하여 사용자에게 시스템 접근 권한(세션 또는 토큰)을 부여한다. |
+| **Failed Post condition** | 인증 실패 시 접근을 차단하고 실패 원인에 따른 오류 메시지를 출력한다. |
+
+<br>
+
+| MAIN SUCCESS SCENARIO | |
+| :--- | :--- |
+| **Step** | **Action** |
+| **1** | 시스템이 전달받은 ID와 암호화된 Password를 확인한다. |
+| **2** | 서버가 데이터베이스에 해당 ID가 존재하는지 조회한다. |
+| **3** | 데이터베이스에서 가져온 암호화된 비밀번호와 입력된 비밀번호를 비교 검증한다. |
+| **4** | 해당 계정의 활성화 상태 및 권한(User/Admin) 정보를 확인한다. |
+| **5** | 검증 완료 후 인증 성공 결과를 상위 유스케이스(Log-in)로 반환한다. |
+
+<br>
+
+| EXTENSION SCENARIOS | |
+| :--- | :--- |
+| **Step** | **Branching Action** |
+| **2** | **2a. 데이터베이스에 존재하지 않는 ID일 경우.**<br>2a1. 인증 실패 결과를 반환한다. |
+| **3** | **3a. 비밀번호가 일치하지 않을 경우.**<br>3a1. 비밀번호 불일치 오류를 반환한다. |
+| **4** | **4a. 계정이 잠겨있거나 비활성 상태인 경우.**<br>4a1. 계정 사용 제한 메시지를 반환한다. |
+
+<br>
+
+| RELATED INFORMATION | |
+| :--- | :--- |
+| **Performance** | 보안 검증 및 DB 조회는 1초 이내에 완료되어야 한다. |
+| **Frequency** | 로그인 시도 시마다 매번 발생 |
+| **Concurrency** | 다수의 사용자가 동시에 인증 요청 가능 |
+| **Due Date** | 2026-05-31 |
+| **Etc** | 비밀번호는 반드시 암호화(Hashing)된 상태로 비교되어야 하며, 보안을 위해 실패 원인을 지나치게 상세히 노출하지 않는다. |
+
+
+### 2.2.6 Request Stock Data
+
+| Use Case Name | Use Case ID | Korean Name | Actor |
+| :--- | :--- | :--- | :--- |
+| **Request Stock Data** | #7 | 주식 데이터 요청 | Stock API |
+
+<br>
+
+| Use Case #7 : Request Stock Data | |
+| :--- | :--- |
+| **GENERAL CHARACTERISTICS** | |
+| **Summary** | 시스템이 외부 Stock API에 접속하여 특정 종목의 실시간 시세, 재무제표, 거래량 등 분석에 필요한 로우 데이터(Raw Data)를 호출한다. |
+| **Scope** | Market analyst tool |
+| **Level** | Sub-function level |
+| **Author** | Bae GeunWong |
+| **Last Update** | May. 5. 2026 |
+| **Status** | Under Review |
+| **Primary Actor** | Stock API |
+| **Secondary Actors** | Server |
+| **Preconditions** | 유효한 종목명 또는 종목 코드가 확인되어 데이터 요청 기능이 활성화된 상태. |
+| **Trigger** | 사용자가 종목 분석을 요청하거나 시스템에서 주기적인 데이터 갱신이 필요할 때 |
+| **Success Post Condition** | 외부로부터 필요한 데이터를 정상적으로 수신하여 시스템 서버 내 메모리 또는 DB에 적재한다. |
+| **Failed Post condition** | API 연결 실패 또는 데이터 부재 시, 사용자에게 데이터 로딩 실패 알림을 전달한다. |
+
+<br>
+
+| MAIN SUCCESS SCENARIO | |
+| :--- | :--- |
+| **Step** | **Action** |
+| **1** | 시스템 서버가 Stock API 서버에 인증 키(API Key)와 함께 데이터 요청 쿼리를 전송한다. |
+| **2** | Stock API 서버에서 요청받은 종목의 최신 시장 데이터를 검색한다. |
+| **3** | API 서버가 JSON 또는 XML 형식으로 종목 데이터를 시스템 서버에 반환한다. |
+| **4** | 시스템 서버가 수신된 데이터를 파싱(Parsing)하여 분석에 적합한 형태로 변환한다. |
+| **5** | 변환된 데이터를 다음 단계인 AI 분석 요청 유스케이스로 전달한다. |
+
+<br>
+
+| EXTENSION SCENARIOS | |
+| :--- | :--- |
+| **Step** | **Branching Action** |
+| **1** | **1a. API 호출 횟수 제한(Rate Limit)을 초과한 경우.**<br>1a1. 잠시 후 재시도하도록 큐에 대기시키거나 사용자에게 지연 메시지를 출력한다. |
+| **3** | **3a. 특정 항목(예: 최신 분기 재무제표)의 데이터가 누락된 경우.**<br>3a1. 가용한 최신 데이터를 가져오거나 누락된 상태로 분석을 진행하되, 사용자에게 주의 사항을 표시한다. |
+
+<br>
+
+| RELATED INFORMATION | |
+| :--- | :--- |
+| **Performance** | 외부 API 통신을 포함하여 전체 데이터 수신 과정은 2초 이내에 완료되어야 한다. |
+| **Frequency** | 종목 검색 시 및 설정된 주기마다 실시간 발생 |
+| **Concurrency** | API 제공업체의 동시 접속 제한 규정에 따름 |
+| **Due Date** | 2026-05-31 |
+| **Etc** | 유료 API 사용 시 트래픽 비용 최적화를 위해 캐싱(Caching) 전략을 병행해야 함. |
+
+### 2.2.7 Request AI Analysis
+
+| Use Case Name | Use Case ID | Korean Name | Actor |
+| :--- | :--- | :--- | :--- |
+| **Request AI Analysis** | #7 | AI 분석 요청 | Gemini API |
+
+<br>
+
+| Use Case #7 : Request AI Analysis | |
+| :--- | :--- |
+| **GENERAL CHARACTERISTICS** | |
+| **Summary** | 수집된 주식 로우 데이터(Raw Data)와 관리자가 설정한 평가 가치 기준을 Gemini API에 전달하여 텍스트 및 수치 기반의 심층 분석을 요청한다. |
+| **Scope** | Market analyst tool |
+| **Level** | Sub-function level |
+| **Author** | Bae GeunWong |
+| **Last Update** | May. 5. 2026 |
+| **Status** | Under Review |
+| **Primary Actor** | Gemini API |
+| **Secondary Actors** | Server |
+| **Preconditions** | 주식 데이터 수집(Use Case #7)이 완료되고 유효한 API Key가 설정된 상태. |
+| **Trigger** | 종목 데이터가 서버에 적재되어 AI의 판단(매수/매도/보유)이 필요한 시점 |
+| **Success Post Condition** | Gemini API가 프롬프트를 수신하고 분석 프로세스를 시작한다. |
+| **Failed Post condition** | API 호출 실패 또는 타임아웃 발생 시 사용자에게 분석 지연 알림을 전달한다. |
+
+<br>
+
+| MAIN SUCCESS SCENARIO | |
+| :--- | :--- |
+| **Step** | **Action** |
+| **1** | 시스템 서버가 수집된 주식 데이터와 최신 평가 가치 가이드라인을 조합하여 프롬프트를 구성한다. |
+| **2** | 시스템이 Google Generative AI 라이브러리를 통해 Gemini API에 분석 요청을 전송한다. |
+| **3** | Gemini API가 전달받은 컨텍스트(데이터+기준)를 바탕으로 추론 프로세스를 수행한다. |
+| **4** | 서버는 API의 응답을 대기하며 연결 상태를 유지한다. |
+| **5** | 분석이 시작되었음을 시스템 로그에 기록하고 다음 유스케이스(결과 생성)로 제어권을 넘긴다. |
+
+<br>
+
+| EXTENSION SCENARIOS | |
+| :--- | :--- |
+| **Step** | **Branching Action** |
+| **2** | **2a. 할당된 API 쿼터(Quota)를 초과한 경우.**<br>2a1. 사용자에게 일시적인 서비스 이용 제한을 알리고 대기 시간을 안내한다. |
+| **3** | **3a. 전달된 데이터의 양이 토큰 제한을 초과할 경우.**<br>3a1. 데이터를 중요도 순으로 요약하여 프롬프트를 재구성한 뒤 재요청한다. |
+
+<br>
+
+| RELATED INFORMATION | |
+| :--- | :--- |
+| **Performance** | API 호출 및 프롬프트 전달은 1초 이내에 완료되어야 한다. |
+| **Frequency** | 사용자별 종목 분석 요청 시마다 발생 |
+| **Concurrency** | API 모델의 동시 처리 제한(RPM/TPM) 범위 내에서 수행 |
+| **Due Date** | 2026-05-31 |
+| **Etc** | 최신 트렌드 반영을 위해 분석 요청 시 관리자가 수정한 '평가 가치' 가이드라인이 최우선적으로 프롬프트에 포함되어야 함. |
+
+### 2.2.8 Generate Analysis Result
+
+| Use Case Name | Use Case ID | Korean Name | Actor |
+| :--- | :--- | :--- | :--- |
+| **Generate Analysis Result** | #9 | 분석 결과 생성 | Gemini API |
+
+<br>
+
+| Use Case #9 : Generate Analysis Result | |
+| :--- | :--- |
+| **GENERAL CHARACTERISTICS** | |
+| **Summary** | Gemini API로부터 수신한 추론 데이터를 파싱하여 사용자에게 최적화된 형태의 매수/매도 판단 결과 및 심층 분석 리포트를 생성하고 출력한다. |
+| **Scope** | Market analyst tool |
+| **Level** | User level |
+| **Author** | Bae GeunWong |
+| **Last Update** | May. 5. 2026 |
+| **Status** | Under Review |
+| **Primary Actor** | Gemini API |
+| **Secondary Actors** | Server, Database |
+| **Preconditions** | AI 분석 요청(Use Case #7)에 대한 응답 데이터가 성공적으로 서버에 도달한 상태. |
+| **Trigger** | AI의 연산이 완료되어 결과 데이터가 수신되었을 때 |
+| **Success Post Condition** | 정제된 분석 결과가 사용자 화면에 출력되고, 추후 조회를 위해 데이터베이스에 저장된다. |
+| **Failed Post condition** | 데이터 형식이 올바르지 않거나 생성 실패 시, 기본 안내 메시지를 출력하고 재시도를 유도한다. |
+
+<br>
+
+| MAIN SUCCESS SCENARIO | |
+| :--- | :--- |
+| **Step** | **Action** |
+| **1** | 시스템 서버가 Gemini API로부터 전달받은 텍스트 및 수치 데이터를 수신한다. |
+| **2** | 수신된 텍스트에서 매수/매도/보유 등급과 핵심 근거 문장을 추출하여 구조화한다. |
+| **3** | 관리자가 설정한 레이아웃 가이드라인에 맞춰 분석 리포트의 시각적 컴포넌트를 구성한다. |
+| **4** | 생성된 분석 결과물을 사용자의 웹/모바일 대시보드에 실시간으로 출력한다. |
+| **5** | 분석 일시, 종목, 결과 데이터를 히스토리 관리를 위해 데이터베이스에 저장한다. |
+
+<br>
+
+| EXTENSION SCENARIOS | |
+| :--- | :--- |
+| **Step** | **Branching Action** |
+| **2** | **2a. AI 응답 형식이 지정된 포맷(JSON 등)을 벗어난 경우.**<br>2a1. 시스템이 텍스트 클리닝 및 재구조화 로직을 실행하여 최대한 가용한 정보를 추출한다. |
+| **4** | **4a. 분석 결과 생성 중 네트워크 끊김이 발생할 경우.**<br>4a1. 저장된 데이터를 바탕으로 사용자가 재접속 시 분석 완료 알림을 전송한다. |
+
+<br>
+
+| RELATED INFORMATION | |
+| :--- | :--- |
+| **Performance** | API 수신 후 리포트 구성 및 화면 출력까지 3초 이내에 완료되어야 한다. |
+| **Frequency** | 분석 요청마다 1회 발생 |
+| **Concurrency** | 다수의 사용자가 동시에 각기 다른 종목의 분석 결과를 수신 및 저장 가능 |
+| **Due Date** | 2026-05-31 |
+| **Etc** | 분석 결과에는 항상 'AI의 분석 결과는 투자 참고용이며 최종 책임은 투자자 본인에게 있다'는 경고 문구를 포함해야 함. |
+
 
