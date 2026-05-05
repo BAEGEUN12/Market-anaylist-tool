@@ -58,9 +58,21 @@
 ### 2.1. Use Case Diagram
  아래의 그림은 Market-analylist-tool 시스템의 Use case Diagram을 그림으로 나타낸 것이다.
  <img width="1203" height="775" alt="스크린샷 2026-04-29 192419" src="https://github.com/user-attachments/assets/09ba0130-293a-4f46-a18d-52fd8766b42b" />
-Use Case는 동명사로 정의 하였다. Actor는 
+ Use Case는 동명사로 정의 하였다. Actor는 
 User와 Administrator, Stock API, Gemini API 총 네 개로 나타내었다. 그리고 각 기능별로 연관성에 따
 라 include 관계나 exclude관계가 적용이 되었다.
+| Use Case Name | Use Case ID | Korean Name | Actor |
+| :--- | :---: | :--- | :--- |
+| **Search Stock Analysis** | #1 | 주식 분석 조회 | User |
+| **Login** | #2 | 로그인 | User, Administrator |
+| **Evaluation value adjustment** | #3 | 평가 가치 조정 | Administrator |
+| **Layout adjustment** | #4 | 레이아웃 조정 | Administrator |
+| **Enter Stock Name** | #5 | 종목명 입력 | User |
+| **Login Verification** | #6 | 로그인 검증 | User, Administrator |
+| **Request Stock Data** | #7 | 주식 데이터 요청 | Stock API |
+| **Request AI Analysis** | #8 | AI 분석 요청 | Gemini API |
+| **Generate Analysis Result** | #9 | 분석 결과 생성 | Gemini API |
+
 
 
 
