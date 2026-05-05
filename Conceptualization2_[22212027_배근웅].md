@@ -79,8 +79,6 @@ Description을 보여준다.
 
 ### 2.2. Use Case Description
    2.2.1 Log-in
- ### [Use Case Description]
-
 | Use Case Name | Use Case ID | Korean Name | Actor |
 | :--- | :---: | :--- | :--- |
 | **Login** | #2 | 로그인 | Member, Administrator |
@@ -91,12 +89,12 @@ Description을 보여준다.
 | :--- | :--- |
 | **GENERAL CHARACTERISTICS** | |
 | **Summary** | 등록을 한 회원과 관리자들은 로그인을 하여 직책에 맞는 기능을 사용할 수 있다. |
-| **Scope** | Always be there |
+| **Scope** | Market anaylist tool|
 | **Level** | User level |
-| **Author** | Kim ChangYoon |
-| **Last Update** | May. 3. 2017 |
+| **Author** | Bae GeunWong |
+| **Last Update** | May. 3. 2026 |
 | **Status** | Under Review |
-| **Primary Actor** | Member, Administrator |
+| **Primary Actor** | User, Administrator |
 | **Secondary Actors** | Server |
 | **Preconditions** | 회원등록을 마친 상태. |
 | **Trigger** | 시스템에 로그인을 하기 위해서 ID와 Password를 입력하고 로그인 버튼을 눌렀을 때 |
@@ -128,7 +126,63 @@ Description을 보여준다.
 | RELATED INFORMATION | |
 | :--- | :--- |
 | **Performance** | ≤ 3 Seconds (로그인 버튼을 눌렀을 때 시스템 내부까지 들어가는 시간을 말한다.) |
-| **Frequency** | None |
+| **Frequency** | None | 
 | **Concurrency** | None |
 | **Due Date** | 2017-05-31 |
 | **Etc** | None |
+
+
+### 2.2.2 Evaluation value adjustment
+
+| Use Case Name | Use Case ID | Korean Name | Actor |
+| :--- | :---: | :--- | :--- |
+| **Evaluation value adjustment** | #3 | 평가 가치 조정 | Administrator |
+
+<br>
+
+| Use Case #3 : Evaluation value adjustment | |
+| :--- | :--- |
+| **GENERAL CHARACTERISTICS** | |
+| **Summary** | 관리자가 Gemini AI의 매수/매도 판단 기초가 되는 평가 지표와 분석 기법을 최신 트렌드에 맞게 수정 및 업데이트한다. |
+| **Scope** | Market analyst tool |
+| **Level** | User level |
+| **Author** | Bae GeunWong |
+| **Last Update** | May. 5. 2026 |
+| **Status** | Under Review |
+| **Primary Actor** | Administrator |
+| **Secondary Actors** | Gemini API, Server |
+| **Preconditions** | 관리자 권한으로 로그인된 상태. |
+| **Trigger** | 새로운 분석 기법 도입이나 기존 평가 지표의 수정이 필요하다고 판단될 때 |
+| **Success Post Condition** | 변경된 평가 가치가 시스템에 반영되어 Gemini AI가 새로운 기준에 따라 분석 결과를 생성한다. |
+| **Failed Post condition** | 설정값 저장 실패 시 기존 평가 가치 기준이 유지된다. |
+
+<br>
+
+| MAIN SUCCESS SCENARIO | |
+| :--- | :--- |
+| **Step** | **Action** |
+| **1** | 관리자가 시스템 설정 메뉴의 '평가 가치 조정' 페이지에 접속한다. |
+| **2** | 현재 설정된 AI 분석 지표(재무제표, 차트 분석, 뉴스 심리 등)의 가중치와 기법을 확인한다. |
+| **3** | 최신 시장 트렌드와 분석 기법을 반영하여 평가 항목 및 수치를 수정한다. |
+| **4** | '설정 적용' 버튼을 눌러 변경 사항을 저장한다. |
+| **5** | 시스템이 변경된 기준을 Gemini API 연동 모듈에 전달하고 적용 완료 메시지를 출력한다. |
+
+<br>
+
+| EXTENSION SCENARIOS | |
+| :--- | :--- |
+| **Step** | **Branching Action** |
+| **3** | **3a. 입력된 설정값이 유효하지 않은 범위일 경우.**<br>3a1. 오류 메시지를 보여주고 올바른 값 입력을 유도한다. |
+| **5** | **5a. API 연동 오류로 인해 실시간 반영이 실패할 경우.**<br>5a1. 서버 로그에 오류를 기록하고 관리자에게 재시도 요청 알림을 띄운다. |
+
+<br>
+
+| RELATED INFORMATION | |
+| :--- | :--- |
+| **Performance** | 설정 저장 및 AI 기준 반영은 5초 이내에 완료되어야 한다. |
+| **Frequency** | 분석 기법 업데이트 시(비정기적) |
+| **Concurrency** | 관리자 단독 수행 (중복 수정 방지 필요) |
+| **Due Date** | 2026-05-31 |
+| **Etc** | Gemini AI의 분석 정확도와 직결되는 항목이므로 변경 전 백업이 권장됨. |
+
+
