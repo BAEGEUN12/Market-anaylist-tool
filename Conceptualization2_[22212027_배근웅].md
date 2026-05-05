@@ -73,13 +73,11 @@ User와 Administrator, Stock API, Gemini API 총 네 개로 나타내었다. 그
 | **Request Stock Data** | #7 | 주식 데이터 요청 | Stock API |
 | **Request AI Analysis** | #8 | AI 분석 요청 | Gemini API |
 | **Generate Analysis Result** | #9 | 분석 결과 생성 | Gemini API |
+
 Use Case Description에서는 위에서부터 차례대로 각 Use Case에 대해 표로 
 Description을 보여준다.
 
-
-
-
-
-
+### 2.2. Use Case Description
+   2.2.1 Log-in
 
 
