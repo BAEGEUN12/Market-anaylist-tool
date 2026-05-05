@@ -79,7 +79,7 @@ Description을 보여준다.
 
 ### 2.2. Use Case Description
    2.2.1 Log-in
-   ### [Use Case Description]
+ ### [Use Case Description]
 
 | Use Case Name | Use Case ID | Korean Name | Actor |
 | :--- | :---: | :--- | :--- |
@@ -90,29 +90,17 @@ Description을 보여준다.
 | Use Case #2 : Log-in | |
 | :--- | :--- |
 | **GENERAL CHARACTERISTICS** | |
-| :--- | :--- |
 | **Summary** | 등록을 한 회원과 관리자들은 로그인을 하여 직책에 맞는 기능을 사용할 수 있다. |
-| :--- | :--- |
 | **Scope** | Always be there |
-| :--- | :--- |
 | **Level** | User level |
-| :--- | :--- |
 | **Author** | Kim ChangYoon |
-| :--- | :--- |
 | **Last Update** | May. 3. 2017 |
-| :--- | :--- |
 | **Status** | Under Review |
-| :--- | :--- |
 | **Primary Actor** | Member, Administrator |
-| :--- | :--- |
 | **Secondary Actors** | Server |
-| :--- | :--- |
 | **Preconditions** | 회원등록을 마친 상태. |
-| :--- | :--- |
 | **Trigger** | 시스템에 로그인을 하기 위해서 ID와 Password를 입력하고 로그인 버튼을 눌렀을 때 |
-| :--- | :--- |
 | **Success Post Condition** | Server에 저장되어 있는 회원임을 인증된 경우 시스템의 모든 기능을 사용할 수 있다. |
-| :--- | :--- |
 | **Failed Post condition** | Server에 저장되어 있지 않은 회원일 경우 로그인이 되지 않는다. |
 
 <br>
@@ -120,15 +108,10 @@ Description을 보여준다.
 | MAIN SUCCESS SCENARIO | |
 | :--- | :--- |
 | **Step** | **Action** |
-| :--- | :--- |
 | **1** | 회원이 시스템을 사용하려고 로그인을 시도한다. |
-| :--- | :--- |
 | **2** | 로그인 화면에 있는 ID와 Password 입력칸에 자신의 ID와 Password를 입력한다. |
-| :--- | :--- |
 | **3** | 로그인 버튼을 누른다. |
-| :--- | :--- |
 | **4** | 시스템이 Server에서 가져온 회원 데이터베이스를 토대로 확인한다. |
-| :--- | :--- |
 | **5** | 로그인을 성공했다는 메시지를 보여주고 메인 화면으로 들어간다. |
 
 <br>
@@ -136,11 +119,8 @@ Description을 보여준다.
 | EXTENSION SCENARIOS | |
 | :--- | :--- |
 | **Step** | **Branching Action** |
-| :--- | :--- |
 | **2** | **2a. 등록하지 않은 회원일 경우.**<br>2a1. 등록하지 않은 회원이라고 메시지를 보여준다.<br>2a2. ID, Password 입력칸을 초기화한다.<br><br>**2b. ID는 맞는데 Password가 틀릴 경우.**<br>2b1. Password가 틀렸다는 메시지를 보여준다.<br>2b2. 해당 입력칸을 초기화한다. |
-| :--- | :--- |
 | **3** | 3a. 본 시스템에 등록되어 있지 않은 사용자의 경우 회원가입(Use Case ID : #1)을 반드시 수행해야만 한다. |
-| :--- | :--- |
 | **4** | **4a. 인터넷이 연결되어 있지 않아서 데이터베이스를 못 가져온 경우.**<br>4a1. 데이터베이스를 못 가져왔다는 메시지를 띄워준다. |
 
 <br>
@@ -148,13 +128,7 @@ Description을 보여준다.
 | RELATED INFORMATION | |
 | :--- | :--- |
 | **Performance** | ≤ 3 Seconds (로그인 버튼을 눌렀을 때 시스템 내부까지 들어가는 시간을 말한다.) |
-| :--- | :--- |
 | **Frequency** | None |
-| :--- | :--- |
 | **Concurrency** | None |
-| :--- | :--- |
 | **Due Date** | 2017-05-31 |
-| :--- | :--- |
 | **Etc** | None |
-
-
