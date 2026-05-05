@@ -61,6 +61,7 @@
  Use Case는 동명사로 정의 하였다. Actor는 
 User와 Administrator, Stock API, Gemini API 총 네 개로 나타내었다. 그리고 각 기능별로 연관성에 따
 라 include 관계나 exclude관계가 적용이 되었다.
+### 아래는 각 Use Case의 ID와 Korean Name, Actor를 나타낸 표이다
 | Use Case Name | Use Case ID | Korean Name | Actor |
 | :--- | :---: | :--- | :--- |
 | **Search Stock Analysis** | #1 | 주식 분석 조회 | User |
