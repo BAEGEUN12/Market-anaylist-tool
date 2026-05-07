@@ -557,9 +557,8 @@ Description을 보여준다.
 관리자나 유저가 웹에 접속하면 밑의 그림과 같은 화면을 볼수 있다.
 <img width="1029" height="575" alt="image" src="https://github.com/user-attachments/assets/888341a2-03db-4d57-8383-ada90f6b92f2" />
 유저들은 로그인 전에 회원등록을 마쳐야 가입을 할 수 있다. 위의 그림에서 
-회원가입 버튼을 누르면 회원등록에 필요한 정보들을 입력하는 화면이 나오게 된다. 입
-력란에 적절한 값을 넣어서 “creat account”버튼을 누르게 되면 회원등록이 완료가 되고 다시 로
-그인을 통하여 시스템 내부로 접근이 가능하다.
+회원가입 버튼을 누르면 회원등록에 필요한 정보들을 입력하는 화면이 나오게 된다.
+입력란에 적절한 값을 넣어서 “creat account”버튼을 누르게 되면 회원등록이 완료가 되고 다시 로그인을 통하여 시스템 내부로 접근이 가능하다.
 
 아래의 그림은 회원가입 버튼을 눌렀을때 나오는 화면이다.
 <img width="836" height="466" alt="image" src="https://github.com/user-attachments/assets/f4d20756-8210-4cd3-b8b8-15ef4d32eb1c" />
@@ -576,6 +575,9 @@ Description을 보여준다.
 
 완료: 로그인 화면으로 이동
 
+### 4.2 Main-UI
+로그인을 성공하게 되면 아래와 같은 메인페이지가 나오게 된다. 
+<img width="1206" height="677" alt="image" src="https://github.com/user-attachments/assets/12046886-e2c1-4c19-97f2-be61dc5adacf" />
 
 
 
