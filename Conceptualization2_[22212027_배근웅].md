@@ -506,4 +506,12 @@ Description을 보여준다.
 | **Due Date** | 2026-05-31 |
 | **Etc** | 분석 결과에는 항상 'AI의 분석 결과는 투자 참고용이며 최종 책임은 투자자 본인에게 있다'는 경고 문구를 포함해야 함. |
 
+## 3.Domain analysis
+아래의 그림은 Domain Analysis 에서 나오는 Class 들의 관계를 앞으로 구현할 프로젝트를의 방향성에 맞게 제시한 것이다.
+<img width="1024" height="531" alt="image" src="https://github.com/user-attachments/assets/8b71b7c1-7534-4f2c-9693-98c1d15ab1e7" />
+
+
+
+
+
 
