@@ -578,6 +578,30 @@ Description을 보여준다.
 ### 4.2 Main-UI
 로그인을 성공하게 되면 아래와 같은 메인페이지가 나오게 된다. 
 <img width="1206" height="677" alt="image" src="https://github.com/user-attachments/assets/12046886-e2c1-4c19-97f2-be61dc5adacf" />
+1. 종목 검색 및 정보 (SearchStockAnalysisHandler 관련)
 
+종목 검색: 왼쪽 상단에서 원하는 주식 종목을 검색할 수 있다.
 
+종목 정보 리스트: 관심 종목(삼성전자, 현대차, 네이버 등)의 현재가와 전일 대비 등락률을 한눈에 파악할 수 있는 위젯을 제공한다.
 
+2. 실시간 주가 차트 (RequestStockDataHandler 데이터 시각화)
+
+중앙의 가장 큰 영역으로, 선택한 종목의 시간대별 주가 흐름을 선 그래프로 나타낸다.
+
+1D/1W/1M 버튼을 통해 조회 기간을 변경할 수 있으며, 이는 StockAPIInterface를 통해 실시간 데이터를 호출한 결과.
+
+3. AI 분석 및 매매 신호 (GenerateAnalysisResultHandler 결과물)
+
+AI 추천: Gemini API가 분석한 현재 종목의 상태(예: 매수 구간)와 기술적 지표(RSI, MACD)에 기반한 코멘트를 제공합니다.
+
+매수/매도 비율: AI 엔진이 판단한 투자 매력도를 백분율(%)로 시각화하여 빠른 의사결정을 돕는다.
+
+4. 기술적 지표 상세 (AnalysisManager 계산 데이터)
+
+하단에는 RSI(상대강도지수), MACD(이동평균수렴확산지수), 볼린저 밴드 등 보조 지표들의 수치가 정밀하게 표시.
+
+5. 내비게이션 및 설정 (LayoutAdjustmentManager 관련)
+
+우측 상단의 대시보드, 분석, 설정 메뉴를 통해 관리자가 설정한 레이아웃으로 변경하거나 시스템 환경을 조정할 수 있다.
+
+### 4.3
