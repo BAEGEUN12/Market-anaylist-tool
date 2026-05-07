@@ -556,6 +556,19 @@ Description을 보여준다.
 ### 4.1 Log-in
 관리자나 유저가 웹에 접속하면 밑의 그림과 같은 화면을 볼수 있다.
 <img width="1029" height="575" alt="image" src="https://github.com/user-attachments/assets/888341a2-03db-4d57-8383-ada90f6b92f2" />
+유저들은 로그인 전에 회원등록을 마쳐야 가입을 할 수 있다. 위의 그림에서 
+회원가입 버튼을 누르면 회원등록에 필요한 정보들을 입력하는 화면이 나오게 된다. 입
+력란에 적절한 값을 넣어서 “creat account”버튼을 누르게 되면 회원등록이 완료가 되고 다시 로
+그인을 통하여 시스템 내부로 접근이 가능하다.
+
+아래의 그림은 회원가입 버튼을 눌렀을때 나오는 화면이다.
+<img width="836" height="466" alt="image" src="https://github.com/user-attachments/assets/f4d20756-8210-4cd3-b8b8-15ef4d32eb1c" />
+가입하지 않은 유저는 이 화면으로 회원가입을 통해 웹을 이용할 수 있게 된다.
+입력: User 정보 기입(6자리 이상 특수,영어,숫자 조합으로 보안을 강화)  
+검증: LoginVerificationManager를 통한 아이디 중복 확인
+처리: Registration 클래스에서 데이터 유효성 검사
+저장: Server 클래스를 거쳐 DB의 Member 엔티티로 저장
+완료: 로그인 화면으로 이동
 
 
 
