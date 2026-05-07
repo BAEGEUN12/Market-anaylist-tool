@@ -555,6 +555,7 @@ Description을 보여준다.
 
 ### 4.1 Log-in
 관리자나 유저가 웹에 접속하면 밑의 그림과 같은 화면을 볼수 있다.
+<img width="1029" height="575" alt="image" src="https://github.com/user-attachments/assets/888341a2-03db-4d57-8383-ada90f6b92f2" />
 
 
 
