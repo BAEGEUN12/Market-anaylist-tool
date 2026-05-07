@@ -507,9 +507,49 @@ Description을 보여준다.
 | **Etc** | 분석 결과에는 항상 'AI의 분석 결과는 투자 참고용이며 최종 책임은 투자자 본인에게 있다'는 경고 문구를 포함해야 함. |
 
 ## 3.Domain analysis
-아래의 그림은 Domain Analysis 에서 나오는 Class 들의 관계를 앞으로 구현할 프로젝트를의 방향성에 맞게 제시한 것이다.
+아래의 그림은 Domain Analysis 에서 나오는 Class 들의 관계를 앞으로 구현할 프로젝트의 방향성에 맞게 제시한 것이다.
 <img width="1024" height="531" alt="image" src="https://github.com/user-attachments/assets/8b71b7c1-7534-4f2c-9693-98c1d15ab1e7" />
+# 주식 분석 시스템(Stock Analysis System) 클래스 정의서
 
+아래 내용은 클래스 다이어그램에 포함된 주요 클래스들의 역할과 속성, 그리고 클래스 간의 관계를 정리한 문서입니다.
+
+### 1) SearchStockAnalysisHandler
+* **설명**: 사용자가 특정 주식에 대한 분석 정보를 조회할 때 중심 역할을 하는 컨트롤 클래스입니다.
+* **주요 기능**: 주식 명 입력(`EnterStockNameModule`), 주식 데이터 요청(`RequestStockDataHandler`), AI 분석 요청(`RequestAIAnalysisHandler`) 등의 과정을 조율하여 최종 분석 결과를 사용자에게 전달합니다.
+
+### 2) LoginVerificationManager
+* **설명**: 시스템의 보안과 접근 권한을 담당하는 핵심 관리 클래스입니다.
+* **주요 기능**: 일반 사용자 및 관리자의 로그인 세션을 검증합니다. `LoginProcessor`나 `EnterStockNameModule` 등 인증이 필요한 다른 모듈들과 `<<include>>` 관계로 연결되어 보안 게이트웨이 역할을 수행합니다.
+
+### 3) AnalysisManager
+* **설명**: 주식 분석에 필요한 데이터 처리와 AI 엔진과의 통신을 총괄하는 클래스입니다.
+* **주요 기능**: `RequestStockDataHandler`로부터 받은 원시 데이터를 분석 가능한 형태로 가공하고, `RequestAIAnalysisHandler` 및 `GenerateAnalysisResultHandler`를 제어하여 분석 리포트를 생성합니다.
+
+### 4) RequestStockDataHandler
+* **설명**: 외부 주식 정보 시스템으로부터 실시간 데이터를 가져오는 기능을 담당합니다.
+* **주요 기능**: `StockAPIInterface`를 통해 외부 서버에 접속하여 주가 데이터, 기업 정보 등을 수집하며, 수집된 데이터를 `AnalysisManager`에게 전달합니다.
+
+### 5) RequestAIAnalysisHandler & GenerateAnalysisResultHandler
+* **설명**: Gemini API와 같은 AI 모델을 활용해 심층 분석을 수행하는 클래스들입니다.
+* **주요 기능**: 
+    - `RequestAIAnalysisHandler`: 분석 모델에 질문(Prompt)을 던지고 분석을 요청합니다.
+    - `GenerateAnalysisResultHandler`: AI로부터 받은 원시 응답을 사용자가 읽기 좋은 리포트 형식으로 변환합니다.
+
+### 6) EvaluationValueManager
+* **설명**: 관리자가 주식의 평가 가치(Value)를 수동으로 조정하거나 기준치를 설정하는 기능을 가진 클래스입니다.
+* **주요 기능**: `AdministratorControls`를 통해 접근하며, 시스템 전체의 평가 로직에 영향을 주는 매개변수를 관리하고 저장합니다.
+
+### 7) LayoutAdjustmentManager & LayoutProcessor
+* **설명**: 시스템 UI/UX의 구성을 관리자가 변경할 수 있도록 지원하는 클래스입니다.
+* **주요 기능**: 대시보드의 레이아웃이나 위젯 배치를 조정하며, `LayoutProcessor`가 실제 변경 사항을 시스템 설정에 반영하고 저장하는 역할을 합니다.
+
+### 8) StockAPIInterface & GeminiAPIInterface
+* **설명**: 외부 시스템(Stock API, Gemini API)과의 통신을 위한 경계(Boundary) 클래스입니다.
+* **주요 기능**: 시스템 내부의 요청을 외부 API 규격에 맞게 변환하여 전송하고, 외부로부터 오는 응답을 수신하는 전용 통로 역할을 합니다.
+
+### 9) UserControls & AdministratorControls
+* **설명**: 사용자 그룹별 접근 가능한 기능들을 추상화하고 그룹화한 상위 클래스입니다.
+* **주요 기능**: 일반 사용자와 관리자 각각이 사용할 수 있는 핸들러들과 일반화(Generalization) 관계를 맺어 권한에 따른 기능 노출을 제어합니다.
 
 
 
