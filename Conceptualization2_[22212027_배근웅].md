@@ -563,11 +563,17 @@ Description을 보여준다.
 
 아래의 그림은 회원가입 버튼을 눌렀을때 나오는 화면이다.
 <img width="836" height="466" alt="image" src="https://github.com/user-attachments/assets/f4d20756-8210-4cd3-b8b8-15ef4d32eb1c" />
+
 가입하지 않은 유저는 이 화면으로 회원가입을 통해 웹을 이용할 수 있게 된다.
+
 입력: User 정보 기입(6자리 이상 특수,영어,숫자 조합으로 보안을 강화)  
+
 검증: LoginVerificationManager를 통한 아이디 중복 확인
+
 처리: Registration 클래스에서 데이터 유효성 검사
+
 저장: Server 클래스를 거쳐 DB의 Member 엔티티로 저장
+
 완료: 로그인 화면으로 이동
 
 
