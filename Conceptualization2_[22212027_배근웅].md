@@ -509,7 +509,7 @@ Description을 보여준다.
 ## 3.Domain analysis
 아래의 그림은 Domain Analysis 에서 나오는 Class 들의 관계를 앞으로 구현할 프로젝트의 방향성에 맞게 제시한 것이다.
 <img width="1024" height="531" alt="image" src="https://github.com/user-attachments/assets/8b71b7c1-7534-4f2c-9693-98c1d15ab1e7" />
-# 주식 분석 시스템(Stock Analysis System) 클래스 정의서
+### 주식 분석 시스템(Stock Analysis System) 클래스 정의서
 
 아래 내용은 클래스 다이어그램에 포함된 주요 클래스들의 역할과 속성, 그리고 클래스 간의 관계를 정리한 문서입니다.
 
